@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
                 end
         })
 
+        use ('eduardomosko/header42.nvim')
+
 	-- Simple plugins can be specified as strings
 
 end)
