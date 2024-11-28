@@ -24,6 +24,9 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/playground')
 	use ('ThePrimeagen/harpoon') -- file n
 	use ('tpope/vim-fugitive') -- file n
+	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup()
+	end}
 
 	-- Simple plugins can be specified as strings
 end)
