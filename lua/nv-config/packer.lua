@@ -12,13 +12,14 @@ return require('packer').startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use({
+        
+	--[[ use({
 		'rose-pine/neovim',
 		as = 'rose-pine',
 		config = function()
 			vim.cmd('colorscheme rose-pine')
 		end		
-	})
+	}) ]]--
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
@@ -27,6 +28,15 @@ return require('packer').startup(function(use)
 	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
 		require("toggleterm").setup()
 	end}
+        use ('feline-nvim/feline.nvim')
+        use ({
+                'ellisonleao/gruvbox.nvim',
+                as = 'gruvbox',
+                config = function()
+                        vim.cmd('colorscheme gruvbox')
+                end
+        })
 
 	-- Simple plugins can be specified as strings
+
 end)
