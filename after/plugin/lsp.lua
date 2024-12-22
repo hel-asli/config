@@ -1,21 +1,26 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls", "clangd", "clangd-format", "cpplint", "grammarly"},
-        automatic_installation = true
+require('mason').setup({})
+local ms = require('mason-lspconfig').setup({
+        ensure_installed = {'clangd', 'lua_ls'},
+        handlers = {
+                function(server_name)
+                        require('lspconfig')[server_name].setup({})
+                end,
+        }
 })
 
-local lspconfig = require("lspconfig")
-
-lspconfig.lua_ls.setup {}
-lspconfig.clangd.setup ({
-
-  on_attach = function(client, bufnr)
-        -- Example of key mappings for LSP features
-        local opts = { noremap = true, silent = true }
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    end,
+local cmp = require('cmp')
+cmp.setup({
+        sources = {
+                {name = 'nvim_lsp'},
+                {name = 'buffer'},
+        },
+        mapping = cmp.mapping.preset.insert({
+                ['m'] = cmp.mapping.confirm({select = true}),
+                ['<C-j>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-k>'] = cmp.mapping.scroll_docs(4),
+                ['<TAB>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ['<C-Space'] = cmp.mapping.complete(),
+        }),
 })
+
