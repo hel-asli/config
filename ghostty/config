@@ -1,0 +1,48 @@
+# Ghostty config - iTerm2-like setup
+
+# Font configuration (similar to iTerm2 defaults)
+font-family = "SF Mono"
+font-size = 12
+
+# Window appearance
+window-padding-x = 8
+window-padding-y = 8
+window-decoration = false
+window-title-font-family = system
+window-theme = system
+
+# Colors (iTerm2 default theme)
+foreground = ffffff
+cursor-color = ffffff
+
+# Background settings
+background = /home/hel-asli/Downloads/1.png
+background-opacity = 0.9
+background-blur-radius = 20
+
+# Terminal behavior
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Scrollback
+scrollback-limit = 10000
+
+# Mouse support
+mouse-hide-while-typing = true
+
+# Tab behavior (similar to iTerm2)
+tab-width = 8
+
+# Bell
+audible-bell = false
+visual-bell = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# URL handling
+auto-update = check
+
+# Performance
+macos-non-native-fullscreen = false
