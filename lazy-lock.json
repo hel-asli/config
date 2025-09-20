@@ -14,5 +14,6 @@
   "nvim-lspconfig": { "branch": "master", "commit": "107c2458cdc780c4ed2c2b5e1b7800cd019010bd" },
   "nvim-tree.lua": { "branch": "master", "commit": "321bc61580fd066b76861c32de3319c3a6d089e7" },
   "nvim-web-devicons": { "branch": "master", "commit": "6e51ca170563330e063720449c21f43e27ca0bc1" },
+  "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
   "vim-airline": { "branch": "master", "commit": "e40a696db0cb8ae412bceee93c94ff27091151ee" }
 }
