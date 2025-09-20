@@ -17,18 +17,20 @@ return {
 			ensure_installed = { "clangd", "lua_ls" },
 		})
 
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- C/C++ LSP
-		lspconfig.clangd.setup({
+		vim.lsp.config.clangd = {
+			cmd = { "clangd" },
+			filetypes = { "c", "cpp", "objc", "objcpp" },
 			capabilities = capabilities,
-		})
+		}
 
 		-- Lua LSP
-		lspconfig.lua_ls.setup({
+		vim.lsp.config.lua_ls = {
+			cmd = { "lua-language-server" },
+			filetypes = { "lua" },
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -37,7 +39,9 @@ return {
 					},
 				},
 			},
-		})
+		}
+
+		vim.lsp.enable({ "clangd", "lua_ls" })
 
 		-- Autocompletion setup
 		local cmp = require("cmp")
@@ -55,6 +59,8 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<Tab>"] = cmp.mapping.select_next_item(),
+				["<S-Tab>"] = cmp.mapping.select_prev_item(),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
