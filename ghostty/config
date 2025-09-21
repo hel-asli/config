@@ -2,7 +2,7 @@
 
 # Font configuration (similar to iTerm2 defaults)
 font-family = "SF Mono"
-font-size = 12
+font-size = 13
 
 # Window appearance
 window-padding-x = 8
@@ -46,3 +46,12 @@ auto-update = check
 
 # Performance
 macos-non-native-fullscreen = false
+
+# Keybindings
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+shift+d=new_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
