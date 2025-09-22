@@ -5,8 +5,8 @@ local config = wezterm.config_builder()
 config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.font_size = 12.0
 
--- Colors (Catppuccin Mocha theme)
-config.color_scheme = 'Catppuccin Mocha'
+-- Colors (Catppuccin Frappé theme)
+config.color_scheme = 'Catppuccin Frappe'
 
 -- Window
 config.window_padding = {
