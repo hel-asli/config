@@ -1,4 +1,4 @@
 return {
   'ThePrimeagen/harpoon',
-  -- dependenices = {'nvim-lua/plenary.nvim'},
+  dependencies = {'nvim-lua/plenary.nvim'},
 }

@@ -3,6 +3,21 @@ local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+-- Setup diagnostics
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●',
+    source = "always",
+  },
+  float = {
+    source = "always",
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
 -- Setup mason
 mason.setup()
 
@@ -57,3 +72,8 @@ cmp.setup({
     { name = "luasnip" },
   }),
 })
+
+-- Diagnostic keybindings
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
